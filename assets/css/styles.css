@@ -15,6 +15,14 @@
 	background-color: #F4FAFA;
 }
 
+#numberToReach {
+  height: 284px;
+  padding-top: 100px;
+  padding-left: 96px;
+  font-size: 50px;
+  opacity: .8;
+}
+
 
 /************* Flower bar buttons *************/
 

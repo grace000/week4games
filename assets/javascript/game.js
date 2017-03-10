@@ -10,13 +10,13 @@ var blueBar = Math.floor((Math.random() * 12) + 1);
 var greenBar = Math.floor((Math.random() * 12) + 1);
 var redBar = Math.floor((Math.random() * 12) + 1);
 var yellowBar = Math.floor((Math.random() * 12) + 1);
-var selectedNumber = [];
+
 
 //Function for selecting a random number for user to reach
 $(document).ready(function() {
 
      var numberToReach = Math.floor(Math.random() * 100);
-    $("#flowers").html(numberToReach);
+    $("#numberToReach").html(numberToReach);
 });
 
 
@@ -54,8 +54,8 @@ $(".btn-yellowbar").on("click",function() {
    		});
 
 //Push the newly guessed patterns into the selectedNumber array.
-this.guessedPattern.push(selectedNumber);
-console.log(selectedNumber);
+//this.guessedPattern.push(selectedNumber);
+//console.log(selectedNumber);
 
 	//Each flower bar selection needs to be saved and number values that match
 	//each bar should be added as a total in order of user selection. 

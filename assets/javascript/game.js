@@ -6,10 +6,10 @@ var numberToReach = 0;
 var guessedPattern = [];
 var wins = 0;
 var losses = 0;
-var blueBar = 10;
-var greenBar = 2;
-var redbBar = 3;
-var yellowBar = 1;
+var blueBar = Math.floor((Math.random() * 12) + 1);
+var greenBar = Math.floor((Math.random() * 12) + 1);
+var redBar = Math.floor((Math.random() * 12) + 1);
+var yellowBar = Math.floor((Math.random() * 12) + 1);
 var selectedNumber = [];
 
 //Function for selecting a random number for user to reach

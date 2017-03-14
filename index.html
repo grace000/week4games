@@ -44,18 +44,36 @@
  	<br>
  		<div class="col-md-12">
  			<div class="row">
- 				<div id="gameinfo" class="col-md-2" style="background-color: white">Game Info</div>
+ 				<div id="gameinfo" data-toggle="popover" title="Popover Header" data-content="You will be given a random number at the start of the game.
+
+ 				Each of the four floral bars will add a specific amount of points to your total score. 
+
+ 				You win the game by matching your total score to the random number, but you lose the game if your total score goes above the random number.
+
+ 				Each time a new game begins, the floral bars will have new values.">
+ 				<button type="button" class="btn btn-default btn-lg">
+ 				 		<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+				</button>
+ 			</div>
+
  				
+
  				<div id="numberToReach" class="col-md-3 col-md-offset-1" style="background-color: white"></div>
 
- 				<div class="col-md-3 col-md-offset-2" >
+ 				<div id="pattern" class="col-md-1 col-md-offset-3">Pattern</div>
+
+ 				<div class="col-md-3 col-md-offset-2">
  				
  					<!--Flower bars-->
  					<button id="number-10" class="btn-bluebar" value="10"></button>
- 					<div>
+ 					
+
+ 					<div> <!--green+red bars in same container with guessedPattern in middle-->
  						<button id="number-2" class="btn-greenbar" value="2"></button>
- 						<button id="number-3" class="btn-redbar" value="3"></button></div>
+ 						<button id="number-3" class="btn-redbar" value="3"></button>
+ 					</div>
  					<div>
+
  						<button id="number-1" class="btn-yellowbar" value="1"></button></div>
  				</div>	
  			</div>

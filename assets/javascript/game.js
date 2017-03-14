@@ -17,6 +17,14 @@ $(document).ready(function() {
 
      var numberToReach = Math.floor(Math.random() * 100);
     $("#numberToReach").html(numberToReach);
+
+
+//Popover for game instructions
+$(function() {
+  $('[data-toggle="popover"]').popover({
+  	placement:"right",
+  	trigger: "hover",
+  })
 });
 
 
@@ -47,7 +55,7 @@ $(".btn-yellowbar").on("click",function() {
         if ($(this).hasClass("flowerbar")) {
 
             // Then grab the value of the button clicked and build a string with it
-            guessedPattern += $(this).attr("value") 
+         	guessedPattern += $(this).attr("value") 
    			}
    			$("#guessedPattern").html(numberToReach);  
    			console.log(guessedPattern);
@@ -60,14 +68,19 @@ $(".btn-yellowbar").on("click",function() {
 	//Each flower bar selection needs to be saved and number values that match
 	//each bar should be added as a total in order of user selection. 
 	//guessedPattern = parseInt(guessedPattern);
-	function sum(arr){
-   	var selectedNumber = 0;
-   		for(var i=0; i < arr.length; i++) {
-   		selectedNumber = selectedNumber + arr[i];
-   	}
-	console.log(selectedNumber);
+	// var guessedPattern =[];
+	// function getSum(total, num) {
+	// 	return total;
+	// }
+	// function placeSum(){
+	// 	for(var i=0; i < guessedPattern.length; i++) {
+ //   		guessedPattern = guessedPattern + arr[i];
+ //   	}
+	// 	$("#scorekeeper").innerHTML = numbers.reduce(getSum, 0);
+	// }
+	// console.log(guessedPattern);
 
-   	};
+ //   	});
 
 
 		//If the users pattern selection exceeds the goal number the game will restart.
@@ -88,4 +101,4 @@ $(".btn-yellowbar").on("click",function() {
 
 //Code reset after results.
 
-
+});

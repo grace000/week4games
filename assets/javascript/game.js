@@ -4,101 +4,116 @@
 //Define global variables 
 var numberToReach = 0;
 var guessedPattern = [];
-var wins = 0;
-var losses = 0;
-var blueBar = Math.floor((Math.random() * 12) + 1);
-var greenBar = Math.floor((Math.random() * 12) + 1);
-var redBar = Math.floor((Math.random() * 12) + 1);
-var yellowBar = Math.floor((Math.random() * 12) + 1);
+var selectedNumber = [];
+var playernumber = 0;
+var barOne = Math.floor((Math.random() * 12) + 2);
+var barTwo = Math.floor((Math.random() * 12) + 1);
+var barThree = Math.floor((Math.random() * 12) + 1);
+var barFour = Math.floor((Math.random() * 12) + 1);
 
 
 //Function for selecting a random number for user to reach
 $(document).ready(function() {
 
-     var numberToReach = Math.floor(Math.random() * 100);
-    $("#numberToReach").html(numberToReach);
+    var numberToReach = Math.floor(Math.random()*(120-19+1)+19)
+    $("#number-to-reach").html(numberToReach);
 
+	var lossCount = 0;
+	$("#losscount").html(lossCount);
 
-//Popover for game instructions
+	var winCount = 0;
+	$("#wincount").html(winCount);
+
+//How to play popover
 $(function() {
-  $('[data-toggle="popover"]').popover({
+  $('.popbutton').popover({
   	placement:"right",
-  	trigger: "hover",
+  	trigger:"hover",
+  	html: true,
+  	container:'body'
+
   })
 });
 
 
 //The flower bars need to have values and be displayed as buttons, but values hidden. The user needs to 
 //click a series of flower bars to obtain the numberToReach.
-$(".btn-bluebar").on("click",function() {
-	blueBar++;
+$('[value="barOne"]').on("click",function() {
+	guessedPattern.push(barOne);
+	// console.log(guessedPattern.reduce(reducer));
+	$("#demo").html(displayPlayerTotal());
+	placeScore();
 });
 
-$(".btn-greenbar").on("click",function() {
-	greenBar++;
+$('[value="barTwo"]').on("click",function() {
+	guessedPattern.push(barTwo);
+	$("#demo").html(displayPlayerTotal());
+	placeScore();
 });
 
-$(".btn-redbar").on("click",function() {
-	redBar++;
+$('[value="barThree"]').on("click",function() {
+	guessedPattern.push(barThree);
+	$("#demo").html(displayPlayerTotal());
+	placeScore();
 });
 
-$(".btn-yellowbar").on("click",function() {
-	yellowBar++;
+$('[value="barFour"]').on("click",function() {
+	guessedPattern.push(barFour);
+	$("#demo").html(displayPlayerTotal());
+	placeScore();
 });
 
+// const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+function getSum(total, num){
+	return total + num;
+}
+
+function displayPlayerTotal(arr){
+	playernumber = guessedPattern.reduce(getSum); 
+	return playernumber;
+}
 
 
-   // Check if any button is clicked
-      $(document).on("click", "button", function() {
+function placeScore(){
 
-        // Checks if it's a flower bar button 
-        if ($(this).hasClass("flowerbar")) {
+//If the users pattern selection exceeds the goal number, the game will restart.
+		if (playernumber > numberToReach) {
+			lossCount++;
+			$("#losscount").html(lossCount);
+			
+			var playAgain = confirm("Sorry, you reached: " + playernumber + ". You lose! Play again?")
+				if (playAgain) {
 
-            // Then grab the value of the button clicked and build a string with it
-         	guessedPattern += $(this).attr("value") 
-   			}
-   			$("#guessedPattern").html(numberToReach);  
-   			console.log(guessedPattern);
-   		});
-
-//Push the newly guessed patterns into the selectedNumber array.
-//this.guessedPattern.push(selectedNumber);
-//console.log(selectedNumber);
-
-	//Each flower bar selection needs to be saved and number values that match
-	//each bar should be added as a total in order of user selection. 
-	//guessedPattern = parseInt(guessedPattern);
-	// var guessedPattern =[];
-	// function getSum(total, num) {
-	// 	return total;
-	// }
-	// function placeSum(){
-	// 	for(var i=0; i < guessedPattern.length; i++) {
- //   		guessedPattern = guessedPattern + arr[i];
- //   	}
-	// 	$("#scorekeeper").innerHTML = numbers.reduce(getSum, 0);
-	// }
-	// console.log(guessedPattern);
-
- //   	});
-
-
-		//If the users pattern selection exceeds the goal number the game will restart.
-		if (this.guessedPattern > numberToReach) {
-			alert("You lose!")
-			this.restartGame();
+					restartGame();
+				}
+				else {
+					alert("Thanks for playing!");
+				}
 		}
 		//The player wins when the player reaches the NumberToReach without exceeding the number.
-		if (this.guessedPattern === numberToReach) {
+		if (playernumber === numberToReach) {
 
 		//Need to notify player of win.
-			alert("You Win!");
+			winCount++;
+			$("#wincount").html(winCount);
+			
+			alert(playernumber + " You Win!");
 
 		//Then start new game.
-			this.restartGame();
+			restartGame();
 		}
+};
 
-
+	
 //Code reset after results.
+function restartGame(){
+	guessedPattern.length = 0;
+	playernumber = 0;
+	$("demo").html(playernumber);
+	numberToReach = Math.floor(Math.random()*(120-19+1)+19)
+    $("#number-to-reach").html(numberToReach);
+};
+
 
 });

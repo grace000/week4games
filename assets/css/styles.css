@@ -1,35 +1,70 @@
+body {
+  background-color: #3b3f45;
+}
+
+/********** Jumbotron *****************/
+.jumbotron {
+  background: url("../images/floralbkrd.jpg");
+  background-size: 200px 200px;
+}
+
 
 /********** Main Game Container *****************/
 
-.container.gamecontent {
+.container-gamecontent {
 
 	height:375px;
 	border-bottom: 5px;
 	border-color: gray;
-	background-color: #F4FAFA;
+	background-color: #3b3f45;
 
 }
 
 #scorekeeper {
 	font-size: 20px;
-	background-color: #F4FAFA;
+	
 }
 
-#numberToReach {
-  height: 284px;
-  padding-top: 100px;
-  padding-left: 96px;
-  font-size: 50px;
-  opacity: .8;
+.popbutton {
+  max-width: 100%;
+}
+
+.wins {
+  background-color: #f3f1e2;
+  border-radius: 5px;
+}
+
+.losses {
+  background-color: #f3f1e2;
+  border-radius: 5px;
+}
+
+#playernumber {
+  height: 225px;
+  padding: 50px;
+  font-size: 100px;
+  margin: auto;
+  text-align: center;
+  border-radius: 5px;
 }
 
 /************* User Guess Box *************/
 
-#pattern {
+#number-to-reach {
   z-index: 50;
-  
-  position: absolute;
-  float: left;
+  background: url("../images/decflower.png");
+  background-size: 100px;
+  height: 100px;
+  width: 100px;
+  padding-top: 20px;
+  font-size: 20px;
+  border: 5px;
+  border-color: #a2a6ad;
+  text-align: center;
+}
+
+.col-md-1-player {
+  z-index: 50;
   height: 75px;
   width: 75px;
   padding-top: 20px;
@@ -38,43 +73,24 @@
   border-color: #a2a6ad;
 }
 
+/************* Floral Buttons *************/
 
-/************* Flower bar buttons *************/
-
-.btn-bluebar,
- .btn-greenbar,
- .btn-redbar,
- .btn-yellowbar {
-  border-width: 0;
-  cursor: pointer;
-  font-weight: bold;
-  padding-bottom: 2px;
-  border-radius: 0;
+.btn-one, .btn-two, .btn-three, .btn-four {
+  transition: transform .2s;
 }
 
-
-.btn-bluebar {
-  background: url("../images/bluehawaiiflower.jpg") no-repeat scroll 0 0 transparent;
-  width: 212px;
-  height: 50px;
+.btn-one:hover {
+  transform: scale(1.1);
 }
 
-.btn-greenbar {
-  background: url("../images/greenhawaiiflower.jpg") no-repeat scroll 0 0 transparent;
-  height: 175px;
-  width: 50px;
-}
-.btn-redbar {
-  background: url("../images/redhawaiiflower.jpg") no-repeat scroll 0 0 transparent;
-  height: 175px;
-  width: 50px;
-  float: right;
+.btn-two:hover {
+  transform: scale(1.1);
 }
 
-.btn-yellowbar {
-  background: url("../images/yellowhawaiiflower.jpg") no-repeat scroll 0 0 transparent;
-  width: 212px;
-  height: 50px;
+.btn-three:hover {
+  transform: scale(1.1);
 }
-
+.btn-four:hover {
+  transform: scale(1.1);
+}
 
